@@ -1,4 +1,115 @@
 
+	var priceDict = {}
+        priceDict['10000001.00'] = 0;
+      	priceDict['10000000.00'] = 1;
+      	priceDict['5000000.00'] = 2;
+      	priceDict['4000000.00'] = 3;
+      	priceDict['3000000.00'] = 4;
+      	priceDict['2000000.00'] = 5;
+      	priceDict['1500000.00'] = 6;
+      	priceDict['1000000.00'] = 7;
+      	priceDict['750000.00'] = 8;
+      	priceDict['500000.00'] = 9;
+      	priceDict['250000.00'] = 10;
+      	priceDict['0.00'] = 11;
+        
+        var priceDictStart = {}
+        priceDictStart['10m'] = 10000000;
+      	priceDictStart['5m-10m'] = 5000000;
+      	priceDictStart['4m-5m'] = 4000000;
+      	priceDictStart['3m-4m'] = 3000000;
+      	priceDictStart['2m-3m'] = 2000000;
+      	priceDictStart['1-5m-2m'] = 1500000;
+      	priceDictStart['1m-1-5m'] = 1000000;
+      	priceDictStart['750k-1m'] = 750000;
+      	priceDictStart['500k-750k'] = 500000;
+      	priceDictStart['250k-500k'] = 250000;
+      	priceDictStart['250-000'] = 0;
+        
+        var priceDictEnd = {}
+        priceDictEnd['10m'] = 10000001;
+      	priceDictEnd['5m-10m'] = 10000000;
+      	priceDictEnd['4m-5m'] = 5000000;
+      	priceDictEnd['3m-4m'] = 4000000;
+      	priceDictEnd['2m-3m'] = 3000000;
+      	priceDictEnd['1-5m-2m'] = 2000000;
+      	priceDictEnd['1m-1-5m'] = 1500000;
+      	priceDictEnd['750k-1m'] = 1000000;
+      	priceDictEnd['500k-750k'] = 750000;
+      	priceDictEnd['250k-500k'] = 500000;
+      	priceDictEnd['250-000'] = 250000;
+        
+				var soilDict = {}
+        soilDict['100.00'] = 0;
+      	soilDict['90.00'] = 1;
+      	soilDict['80.00'] = 2;
+      	soilDict['70.00'] = 3;
+      	soilDict['60.00'] = 4;
+      	soilDict['50.00'] = 5;
+      	soilDict['40.00'] = 6;
+      	soilDict['30.00'] = 7;
+      	soilDict['20.00'] = 8;
+      	soilDict['10.00'] = 9;
+      	soilDict['0.00'] = 10;
+        
+        var soilDictStart = {}
+        soilDictStart['90'] = 90;
+      	soilDictStart['80-90'] = 80;
+      	soilDictStart['70-80'] = 70;
+      	soilDictStart['60-70'] = 60;
+      	soilDictStart['50-60'] = 50;
+      	soilDictStart['40-50'] = 40;
+      	soilDictStart['30-40'] = 30;
+      	soilDictStart['20-30'] = 20;
+      	soilDictStart['10-20'] = 10;
+      	soilDictStart['10'] = 0;
+        
+        var soilDictEnd = {}
+        soilDictEnd['90'] = 100;
+      	soilDictEnd['80-90'] = 90;
+      	soilDictEnd['70-80'] = 80;
+      	soilDictEnd['60-70'] = 70;
+      	soilDictEnd['50-60'] = 60;
+      	soilDictEnd['40-50'] = 50;
+      	soilDictEnd['30-40'] = 40;
+      	soilDictEnd['20-30'] = 30;
+      	soilDictEnd['10-20'] = 20;
+      	soilDictEnd['10'] = 10;
+        
+        var acresDict = {}
+        acresDict['10001.00'] = 0;
+        acresDict['10000.00'] = 1;
+        acresDict['6400.00'] = 2;
+        acresDict['4000.00'] = 3;
+        acresDict['2560.00'] = 4;
+        acresDict['1280.00'] = 5;
+        acresDict['640.00'] = 6;
+        acresDict['320.00'] = 7;
+        acresDict['160.00'] = 8;
+        acresDict['0.00'] = 9;
+        
+        var acresDictStart = {}
+        acresDictStart['10000'] = 10000;
+        acresDictStart['6400-10000'] = 6400;
+        acresDictStart['4000-6400'] = 4000;
+        acresDictStart['2560-4000'] = 2560;
+        acresDictStart['1280-2560'] = 1280;
+        acresDictStart['640-1280'] = 640;
+        acresDictStart['320-640'] = 320;
+        acresDictStart['160-320'] = 160;
+        acresDictStart['160'] = 0;
+        
+        var acresDictEnd = {}
+        acresDictEnd['10000'] = 10001;
+        acresDictEnd['6400-10000'] = 10000;
+        acresDictEnd['4000-6400'] = 6400;
+        acresDictEnd['2560-4000'] = 4000;
+        acresDictEnd['1280-2560'] = 2560;
+        acresDictEnd['640-1280'] = 1280;
+        acresDictEnd['320-640'] = 640;
+        acresDictEnd['160-320'] = 320;
+        acresDictEnd['160'] = 160;
+
 $(function () {
     	
       var prices = document.getElementsByClassName("price-checkbox");
@@ -69,6 +180,17 @@ $(function () {
         var range = $('#' + idOfRangeSlider).next()[0];
       	var startintone = 0;
       	var startinttwo = 10000001;
+	    
+	if (urlParams.get('list-price-ranges')) {
+        	console.log(urlParams.get('list-price-ranges'));
+        
+        	const priceParams = urlParams.get('list-price-ranges').split('|');
+        	console.log(priceParams[0]);
+        	console.log(priceParams[priceParams.length - 1]);
+        
+     			var startintone = priceDictStart[priceParams[priceParams.length - 1]];
+      		var startinttwo = priceDictEnd[priceParams[0]];
+        }
 
         noUiSlider.create(range, {
             connect: true,
@@ -159,6 +281,17 @@ $(function () {
         var range = $('#' + idOfRangeSlider).next()[0];
       	var startintone = 0;
       	var startinttwo = 100;
+	    
+	    if (urlParams.get('soil-final-rating-ranges')) {
+        	console.log(urlParams.get('soil-final-rating-ranges'));
+        
+        	const soilParams = urlParams.get('soil-final-rating-ranges').split('|');
+        	console.log(soilParams[0]);
+        	console.log(soilParams[soilParams.length - 1]);
+        
+     			var startintone = soilDictStart[soilParams[soilParams.length - 1]];
+      		var startinttwo = soilDictEnd[soilParams[0]];
+        }
 
         noUiSlider.create(range, {
             connect: true,
@@ -236,6 +369,17 @@ $(function () {
         var range = $('#' + idOfRangeSlider).next()[0];
       	var startintone = 0;
       	var startinttwo = 10001;
+	    
+	    if (urlParams.get('title-acres-ranges')) {
+        	console.log(urlParams.get('title-acres-ranges'));
+        
+        	const acresParams = urlParams.get('title-acres-ranges').split('|');
+        	console.log(acresParams[0]);
+        	console.log(acresParams[acresParams.length - 1]);
+        
+     			var startintone = acresDictStart[acresParams[acresParams.length - 1]];
+      		var startinttwo = acresDictEnd[acresParams[0]];
+        }
 
         noUiSlider.create(range, {
             connect: true,

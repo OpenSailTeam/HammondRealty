@@ -1,3 +1,5 @@
+	const queryString = window.location.search;
+    	const urlParams = new URLSearchParams(queryString);
 
 	var priceDict = {}
         priceDict['10000001.00'] = 0;

@@ -1,13 +1,5 @@
 
-<!-- Custom Range Slider for Webflow (Flowbase.co) -->
-
-<script src="https://refreshless.com/nouislider/dist/nouislider.js?v=1550"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script src="https://refreshless.com/nouislider/documentation/assets/wNumb.js"></script>
-
-<script>
-
-		$(function () {
+$(function () {
     	
       var prices = document.getElementsByClassName("price-checkbox");
       var acres = document.getElementsByClassName("acres-checkbox");
@@ -310,62 +302,7 @@
           	range.noUiSlider.set([0, 10001]);
           });
     });
-    
-</script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/gh/JasonSanford/leaflet-vector-layers@1.6.0/dist/lvector.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/esri-leaflet@3.0.9/dist/esri-leaflet.js"></script>
-
-<style>
-.leaflet-container {
-	font-family: Poppins, sans-serif !important;
-  outline-width: 0 !important;
- }
-  
-.leaflet-container a {
-	color: #333;
-}
-.leaflet-popup-content {
-	margin: 0;
-}
-.leaflet-marker-icon {
-	
-}
-.leaflet-container a.leaflet-popup-close-button {
-	color: #fc0137 !important;
-  width: 32px;
-  height: 32px;
-  font-size: 24px !important;
-}
-.leaflet-popup-content {
-	width: 262px;
-}
-
-.rmlabel {
-	
-}
-
-.rmlabel div {
-	font-family: Poppins, sans-serif !important;
-  font-weight: 600;
-  width: 200px;
-  background-color: #fff;
-  border-radius: 5px;
-	text-align: center;
-  padding: 4px;
-  position: relative;
-  right: 100px;
-  bottom: 12px;
-  box-shadow: -1px -1px 26px 0px rgba(0,0,0,0.23);
-	-webkit-box-shadow: -1px -1px 26px 0px rgba(0,0,0,0.23);
-	-moz-box-shadow: -1px -1px 26px 0px rgba(0,0,0,0.23);
-}
-
-</style>
-
-<script>
 const apiKey = "AAPKf33f33b83d4d4a7db813b351e71d3f7516hfeoFRBscDDlxekWwBLDEYvXHNnmPQn5ugtK7nfWOMI98AaFh-8ztgfO9wQ2Ri";
 
 $(function () {
@@ -492,5 +429,3 @@ var myIcon = L.icon({
           } catch (error) {}
       }
   }
-  
-</script>

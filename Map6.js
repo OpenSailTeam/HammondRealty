@@ -75,9 +75,6 @@
         acresDict['320-640'] = 2;
         acresDict['160-320'] = 1;
         acresDict['160'] = 0;
-
-		const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
     
     var priceTooltipsArray = [
                 wNumb({encoder: function(a){return priceArray[Math.floor(a)];},decimals: 0,thousand: ',',prefix: '$'}), 

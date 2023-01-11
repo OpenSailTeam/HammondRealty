@@ -300,7 +300,7 @@ var myIcon = L.icon({
     iconSize: [40, 52],
     iconAnchor: [20, 52],
     popupAnchor: [0, -57],
-    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.png',
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
 });
        

@@ -289,8 +289,53 @@ $(function () {
         }
 });
 
-var myIcon = L.icon({
-    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/6320d3bb98fbd828734ac756_pin.svg',
+var redIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb04e6d802dfd4a7655ef4_redPin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var whiteRedIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb04e78e226c3414efd900_whiteRedPin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var blueIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb0684ea97beaf7cb36ae4_bluePin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var whiteBlueIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb06861fe6f56b96403c76_whiteBluePin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var greenIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb068682940e83a2079344_greenPin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var whiteGreenIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb068627e7bc1158e74d1b_whiteGreenPin.svg',
     iconSize: [40, 52],
     iconAnchor: [20, 52],
     popupAnchor: [0, -57],
@@ -307,6 +352,8 @@ var myIcon = L.icon({
       var properties = {};
 
       for (let i = 0; i < x.length; i++) {
+	  var myIcon = redIcon;
+	      
           properties[i] = {
               name: x[i].childNodes[1],
               latitude: x[i].childNodes[0].innerHTML.split(/[ ,]+/)[0],
@@ -318,12 +365,39 @@ var myIcon = L.icon({
               soil: x[i].childNodes[6],
               peracre: x[i].childNodes[7].innerHTML,
               link: x[i].childNodes[8],
-              image: x[i].childNodes[9]
+              image: x[i].childNodes[9],
+	      status: x[i].childNodes[10],
+	      statusImage: x[i].childnodes[11]
           };
+	      
+	  switch(properties[i].status.innerHTML) {
+	     	case "Sale Pending":
+			myIcon = whiteRedIcon;
+	      		break;
+		case "Sold":
+			myIcon = whiteRedIcon;
+	      		break;
+		case "For Lease":
+			myIcon = blueIcon;
+	      		break;
+		case "Lease Pending":
+			myIcon = whiteBlueIcon;
+	      		break;
+		case "Leased":
+			myIcon = whiteBlueIcon;
+	      		break;
+		case "Buyer Contract (Active)":
+			myIcon = greenIcon;
+	      		break;
+		case "Buyer Contract (Fulfilled)":
+			myIcon = whiteGreenIcon;
+	      		break;
+	  }
+	      
           try {
               var marker = L.marker([properties[i].latitude, properties[i].longitude], {icon: myIcon}).addTo(layerGroup);
               var popup = L.popup()
-                  .setContent('<div role="listitem" class="property-card w-dyn-item"><a href=' + properties[i].link.href + ' class="link-block-10 w-inline-block"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaec" class="last-article-image-wrapper"><img style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" src=' + properties[i].image.src + ' alt="" sizes="(max-width: 767px) 162.015625px, (max-width: 991px) 21vw, (max-width: 1279px) 22vw, (max-width: 1439px) 17vw, 19vw" class="image-zoom"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaee" style="display: none; width: 0px; height: 212.234px;" class="transition-bg-solid"></div></div><div class="div-block-10"><h2 class="heading-5">' + properties[i].name.innerHTML + '</h2><div class="div-block-11"><img src="https://assets-global.website-files.com/6176cec6a4e37b6a55ae0553/618c07883d62069be56731a5_place%20(3).png" loading="lazy" width="18" alt="" class="image-2"><div class="text-block-500">' + properties[i].location.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">Price (P):</div><div class="text-block-400 currency">' + properties[i].price + '</div></div><div class="div-block-39"><div class="text-block-600">Title Acres:</div><div class="text-block-400 number">' + properties[i].acres + '</div></div><div class="div-block-39"><div class="text-block-600">Avg. AV/Qtr:</div><div class="text-block-400 currency">' + properties[i].perqtr + '</div></div><div class="div-block-39"><div class="text-block-600">Soil Final Rating:</div><div class="text-block-400">' + properties[i].soil.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">$/acre:</div><div class="text-block-400 currency">' + properties[i].peracre + '</div></div></div><div class="w-embed"></div></a></div>')
+                  .setContent('<div role="listitem" class="property-card w-dyn-item"><div style="background-image:url("properties[i].statusImage.src")" class="banner"></div><a href=' + properties[i].link.href + ' class="link-block-10 w-inline-block"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaec" class="last-article-image-wrapper"><img style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" src=' + properties[i].image.src + ' alt="" sizes="(max-width: 767px) 162.015625px, (max-width: 991px) 21vw, (max-width: 1279px) 22vw, (max-width: 1439px) 17vw, 19vw" class="image-zoom"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaee" style="display: none; width: 0px; height: 212.234px;" class="transition-bg-solid"></div></div><div class="div-block-10"><h2 class="heading-5">' + properties[i].name.innerHTML + '</h2><div class="div-block-11"><img src="https://assets-global.website-files.com/6176cec6a4e37b6a55ae0553/618c07883d62069be56731a5_place%20(3).png" loading="lazy" width="18" alt="" class="image-2"><div class="text-block-500">' + properties[i].location.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">Price (P):</div><div class="text-block-400 currency">' + properties[i].price + '</div></div><div class="div-block-39"><div class="text-block-600">Title Acres:</div><div class="text-block-400 number">' + properties[i].acres + '</div></div><div class="div-block-39"><div class="text-block-600">Avg. AV/Qtr:</div><div class="text-block-400 currency">' + properties[i].perqtr + '</div></div><div class="div-block-39"><div class="text-block-600">Soil Final Rating:</div><div class="text-block-400">' + properties[i].soil.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">$/acre:</div><div class="text-block-400 currency">' + properties[i].peracre + '</div></div></div><div class="w-embed"></div></a></div>')
               marker.bindPopup(popup);
           } catch (error) {}
       }

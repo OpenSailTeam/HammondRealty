@@ -2,18 +2,18 @@
     	const urlParams = new URLSearchParams(queryString);
 
         var priceArray = []             
-        priceArray[0] = 0.00;
-      	priceArray[1] = 250000.00;
-      	priceArray[2] = 500000.00;
-      	priceArray[3] = 750000.00;
-      	priceArray[4] = 1000000.00;
-      	priceArray[5] = 1500000.00;
-      	priceArray[6] = 2000000.00;
-      	priceArray[7] = 3000000.00;
-      	priceArray[8] = 4000000.00;
-      	priceArray[9] = 5000000.00;
-      	priceArray[10] = 10000000.00;
-      	priceArray[11] = 10000001.00;
+        priceArray[0] = 0;
+      	priceArray[1] = 250000;
+      	priceArray[2] = 500000;
+      	priceArray[3] = 750000;
+      	priceArray[4] = 1000000;
+      	priceArray[5] = 1500000;
+      	priceArray[6] = 2000000;
+      	priceArray[7] = 3000000;
+      	priceArray[8] = 4000000;
+      	priceArray[9] = 5000000;
+      	priceArray[10] = 10000000;
+      	priceArray[11] = 10000001;
         
         var priceDict = {}
         priceDict['10m'] = 10;
@@ -28,20 +28,20 @@
         priceDict['250k-500k'] = 1;
         priceDict['250-000'] = 0;
  
-	var soilArray = []
-        soilArray[0] = 0.00
-        soilArray[1] = 10.00
-        soilArray[2] = 20.00
-        soilArray[3] = 30.00
-        soilArray[4] = 40.00
-        soilArray[5] = 50.00
-        soilArray[6] = 60.00
-        soilArray[7] = 70.00
-        soilArray[8] = 80.00
-        soilArray[9] = 90.00
-        soilArray[10] = 100.00
+ 				var soilArray = []
+        soilArray[0] = 0;
+        soilArray[1] = 10;
+        soilArray[2] = 20;
+        soilArray[3] = 30;
+        soilArray[4] = 40;
+        soilArray[5] = 50;
+        soilArray[6] = 60;
+        soilArray[7] = 70;
+        soilArray[8] = 80;
+        soilArray[9] = 90;
+        soilArray[10] = 100;
  
-	var soilDict = {}
+				var soilDict = {}
         soilDict['90'] = 9;
       	soilDict['80-90'] = 8;
       	soilDict['70-80'] = 7;
@@ -54,16 +54,16 @@
       	soilDict['10'] = 0;
         
         var acresArray = []
-        acresArray[0] = 0.00;
-        acresArray[1] = 160.00;
-        acresArray[2] = 320.00;
-        acresArray[3] = 640.00;
-        acresArray[4] = 1280.00;
-        acresArray[5] = 2560.00;
-        acresArray[6] = 4000.00;
-        acresArray[7] = 6400.00;
-        acresArray[8] = 10000.00;
-        acresArray[9] = 10001.00;
+        acresArray[0] = 0;
+        acresArray[1] = 160;
+        acresArray[2] = 320;
+        acresArray[3] = 640;
+        acresArray[4] = 1280;
+        acresArray[5] = 2560;
+        acresArray[6] = 4000;
+        acresArray[7] = 6400;
+        acresArray[8] = 10000;
+        acresArray[9] = 10001;
         
         var acresDict = {}
         acresDict['10000'] = 8;
@@ -77,19 +77,18 @@
         acresDict['160'] = 0;
     
     var priceTooltipsArray = [
-                wNumb({encoder: function(a){return priceArray[Math.floor(a)];},decimals: 0,thousand: ',',prefix: '$'}), 
-              	wNumb({encoder: function(a){return priceArray[Math.floor(a)];},decimals: 0,thousand: ',',prefix: '$',edit: function ( value ) {return value == '$10,000,001' ? '∞' : value;}}),
+                wNumb({encoder: function(a){return priceArray[Math.round(a)];},decimals: 0,thousand: ',',prefix: '$'}), 
+              	wNumb({encoder: function(a){return priceArray[Math.round(a)];},decimals: 0,thousand: ',',prefix: '$',edit: function ( value ) {return value == '$10,000,001' ? '∞' : value;}}),
                 ]
                 
     var soilTooltipsArray = [
-                wNumb({encoder: function(a){return soilArray[Math.floor(a)];},decimals: 0}), 
-              	wNumb({encoder: function(a){return soilArray[Math.floor(a)];},decimals: 0}),
+                wNumb({encoder: function(a){return soilArray[Math.round(a)];},decimals: 0}), 
+              	wNumb({encoder: function(a){return soilArray[Math.round(a)];},decimals: 0}),
                 ]
-    
-    
+                
     var acresTooltipsArray = [
-                wNumb({encoder: function(a){return acresArray[Math.floor(a)];},decimals: 0,thousand: ',',}), 
-              	wNumb({encoder: function(a){return acresArray[Math.floor(a)];},decimals: 0,thousand: ',',edit: function ( value ) {return value == '10,001' ? '∞' : value;}}),
+                wNumb({encoder: function(a){return acresArray[Math.round(a)];},decimals: 0,thousand: ',',}), 
+              	wNumb({encoder: function(a){return acresArray[Math.round(a)];},decimals: 0,thousand: ',',edit: function ( value ) {return value == '10,001' ? '∞' : value;}}),
             		]
     
     $(function () {
@@ -127,7 +126,6 @@
         });
         
         function checkit(index) {
-        console.log("checked");
           if (inputs[index].checked) {
           } else {
             inputs[index].click();
@@ -135,7 +133,6 @@
         }
       
       	function uncheckit(index) {
-        console.log("unchecked");
           if (inputs[index].checked) {
             inputs[index].click();
           }
@@ -144,9 +141,6 @@
         range.noUiSlider.on('change', function (values) {
         	
 					for (var i = 0; i < inputs.length; i++) {
-          console.log(parseInt(values[1]));
-          console.log(parseInt(values[0]));
-          
     				if (parseInt(values[0]) <= i & i < parseInt(values[1])) {
                   checkit(i);
                 } else {
@@ -158,7 +152,7 @@
         
         $("#clear-filters")
     			.click(function (e) {
-          	range.noUiSlider.set([0, 10000001]);
+          	range.noUiSlider.set([startintone, startinttwo]);
           });
     }
     

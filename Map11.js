@@ -295,7 +295,52 @@ $(function () {
         }
 });
 
-var myIcon = L.icon({
+var redIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb04e6d802dfd4a7655ef4_redPin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var whiteRedIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63cb04e78e226c3414efd900_whiteRedPin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var blueIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/6320d3bb98fbd828734ac756_pin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var whiteBlueIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/6320d3bb98fbd828734ac756_pin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var greenIcon = L.icon({
+    iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/6320d3bb98fbd828734ac756_pin.svg',
+    iconSize: [40, 52],
+    iconAnchor: [20, 52],
+    popupAnchor: [0, -57],
+    shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
+    shadowSize: [40, 52],
+});
+
+var whiteGreenIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/6320d3bb98fbd828734ac756_pin.svg',
     iconSize: [40, 52],
     iconAnchor: [20, 52],
@@ -313,6 +358,8 @@ var myIcon = L.icon({
       var properties = {};
 
       for (let i = 0; i < x.length; i++) {
+	  var myIcon = redIcon;
+	      
           properties[i] = {
               name: x[i].childNodes[1],
               latitude: x[i].childNodes[0].innerHTML.split(/[ ,]+/)[0],
@@ -324,8 +371,34 @@ var myIcon = L.icon({
               soil: x[i].childNodes[6],
               peracre: x[i].childNodes[7].innerHTML,
               link: x[i].childNodes[8],
-              image: x[i].childNodes[9]
+              image: x[i].childNodes[9],
+	      status: x[i].childNodes[10]
           };
+	      
+	  switch(properties[i].status.innerHTML) {
+	     	case "Sale Pending":
+			myIcon = whiteRedIcon;
+	      		break;
+		case "Sold":
+			myIcon = whiteRedIcon;
+	      		break;
+		case "For Lease":
+			myIcon = blueIcon;
+	      		break;
+		case "Lease Pending":
+			myIcon = whiteBlueIcon;
+	      		break;
+		case "Leased":
+			myIcon = whiteBlueIcon;
+	      		break;
+		case "Buyer Contract (Active)":
+			myIcon = greenIcon;
+	      		break;
+		case "Buyer Contract (Fulfilled)":
+			myIcon = whiteGreenIcon;
+	      		break;
+	  }
+	      
           try {
               var marker = L.marker([properties[i].latitude, properties[i].longitude], {icon: myIcon}).addTo(layerGroup);
               var popup = L.popup()

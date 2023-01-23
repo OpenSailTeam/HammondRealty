@@ -367,7 +367,7 @@ var whiteGreenIcon = L.icon({
               link: x[i].childNodes[8],
               image: x[i].childNodes[9],
 	      status: x[i].childNodes[10],
-	      statusImage: x[i].childnodes[11]
+	      statusImage: x[i].childNodes[11]
           };
 	      
 	  switch(properties[i].status.innerHTML) {

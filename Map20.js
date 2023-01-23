@@ -396,7 +396,7 @@ function populateMap() {
 	
 	if (results) {
 		
-		var x = document.results.querySelectorAll(".item");
+		var x = results.querySelectorAll(".item");
 
 		layerGroup.clearLayers();
 

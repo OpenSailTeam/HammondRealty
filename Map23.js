@@ -339,7 +339,7 @@ map.on('zoomend', function() {
 var redIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63d14b7be3b236ce8c0da873_redPin.svg',
     iconSize: [36, 52],
-    iconAnchor: [13, 52],
+    iconAnchor: [18, 52],
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
@@ -349,7 +349,7 @@ var redIcon = L.icon({
 var whiteRedIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63d14b7b32a91df38e1c19b3_whiteRedPin.svg',
     iconSize: [36, 52],
-    iconAnchor: [13, 52],
+    iconAnchor: [18, 52],
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
@@ -359,7 +359,7 @@ var whiteRedIcon = L.icon({
 var blueIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63d14b7b41b400b4f4e4f253_bluePin.svg',
     iconSize: [36, 52],
-    iconAnchor: [13, 52],
+    iconAnchor: [18, 52],
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
@@ -369,7 +369,7 @@ var blueIcon = L.icon({
 var whiteBlueIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63d14b7b2d63ec6303efedbc_whiteBluePin.svg',
     iconSize: [36, 52],
-    iconAnchor: [13, 52],
+    iconAnchor: [18, 52],
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
@@ -379,7 +379,7 @@ var whiteBlueIcon = L.icon({
 var greenIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63d14b7b82a99cfab261f5ba_greenPin.svg',
     iconSize: [36, 52],
-    iconAnchor: [13, 52],
+    iconAnchor: [18, 52],
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
@@ -389,7 +389,7 @@ var greenIcon = L.icon({
 var whiteGreenIcon = L.icon({
     iconUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63d14b7b150c600c7159f986_whiteGreenPin.svg',
     iconSize: [36, 52],
-    iconAnchor: [13, 52],
+    iconAnchor: [18, 52],
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],

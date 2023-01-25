@@ -343,6 +343,7 @@ var redIcon = L.icon({
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
+	shadowAnchor: [20, 52],
 });
 
 var whiteRedIcon = L.icon({
@@ -352,6 +353,7 @@ var whiteRedIcon = L.icon({
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
+	shadowAnchor: [20, 52],
 });
 
 var blueIcon = L.icon({
@@ -361,6 +363,7 @@ var blueIcon = L.icon({
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
+	shadowAnchor: [20, 52],
 });
 
 var whiteBlueIcon = L.icon({
@@ -370,6 +373,7 @@ var whiteBlueIcon = L.icon({
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
+	shadowAnchor: [20, 52],
 });
 
 var greenIcon = L.icon({
@@ -379,6 +383,7 @@ var greenIcon = L.icon({
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
+	shadowAnchor: [20, 52],
 });
 
 var whiteGreenIcon = L.icon({
@@ -388,6 +393,7 @@ var whiteGreenIcon = L.icon({
     popupAnchor: [0, -57],
     shadowUrl: 'https://uploads-ssl.webflow.com/6176cec6a4e37b6a55ae0553/63a60f406a740ddbcc651e48_pinshadow.webp',
     shadowSize: [40, 52],
+	shadowAnchor: [20, 52],
 });
 
 function populateMap() {

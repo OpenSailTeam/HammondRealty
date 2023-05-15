@@ -401,12 +401,10 @@ function populateMap() {
     var results = document.getElementById("results");
 	
 	if (results) {
-		
-		var x = results.querySelectorAll(".Property-card");
 
 		layerGroup.clearLayers();
 
-		for (let i = 0; i < x.length; i++) {
+		for (let i = 0; i < properties.length; i++) {
 			var myIcon = redIcon;
 
 			switch (properties[i].status) {

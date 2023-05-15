@@ -402,7 +402,7 @@ function populateMap() {
 	
 	if (results) {
 		
-		var x = results.querySelectorAll(".Property-card");
+		var x = results.querySelectorAll(".property-card");
 
 		layerGroup.clearLayers();
 

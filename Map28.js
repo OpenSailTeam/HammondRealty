@@ -400,6 +400,8 @@ function populateMap() {
 
     var results = document.getElementById("results");
 	
+	properties = [{}]
+	
 	if (results) {
 
 		layerGroup.clearLayers();

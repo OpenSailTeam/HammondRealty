@@ -250,16 +250,36 @@ $(function() {
 
 function observeResults() {
     const resultsElement = document.getElementById('results');
-		if (resultsElement) {
-			const observer = new MutationObserver(function() {
-        	populateMap();
-    	});
+    if (resultsElement) {
+        const resultsObserver = new MutationObserver(function() {
+            populateMap();
+        });
 
-    	observer.observe(resultsElement, {
-        	childList: true
-    	});
-	}
+        resultsObserver.observe(resultsElement, {
+            childList: true
+        });
+    }
+
+    const mapContainerElement = document.getElementById('map-container');
+    if (mapContainerElement) {
+        const mapObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    const displayStyle = window.getComputedStyle(mapContainerElement).display;
+                    if (displayStyle === 'block') {
+                        populateMap();
+                    }
+                }
+            });
+        });
+
+        mapObserver.observe(mapContainerElement, {
+            attributes: true,
+            attributeFilter: ['style']
+        });
+    }
 }
+
 
 observeResults();
 
@@ -400,7 +420,12 @@ function populateMap() {
 
     var results = document.getElementById("results");
 	
-	if (results) {
+const mapContainerElement = document.getElementById('map-container');
+const displayStyle = window.getComputedStyle(mapContainerElement).display;
+
+if (displayStyle === 'block') {
+    if (results) {
+
 		
 		var x = results.querySelectorAll(".property-card");
 
@@ -461,4 +486,5 @@ function populateMap() {
 			} catch (error) {}
 		}
 	}
+}
 }

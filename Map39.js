@@ -439,23 +439,23 @@ function populateMap() {
 					switch (properties[i].service.innerHTML) {
 						case "Listing":
 							myIcon = redIcon;
-							banner = banner1;
+							banner = properties[i].banner1;
 							break;
 						case "Tender":
 							myIcon = redIcon;
-							banner = banner2;
+							banner = properties[i].banner2;
 							break;
 						case "Auction":
 							myIcon = redIcon;
-							banner = banner3;
+							banner = properties[i].banner3;
 							break;
 						case "Lease":
 							myIcon = blueIcon;
-							banner = banner4;
+							banner = properties[i].banner4;
 							break;
 						case "Wanted":
 							myIcon = greenIcon;
-							banner = banner5;
+							banner = properties[i].banner5;
 							break;
 					}
 					break;
@@ -463,23 +463,23 @@ function populateMap() {
 					switch (properties[i].service.innerHTML) {
 						case "Listing":
 							myIcon = whiteRedIcon;
-							banner = banner1;
+							banner = properties[i].banner1;
 							break;
 						case "Tender":
 							myIcon = whiteRedIcon;
-							banner = banner2;
+							banner = properties[i].banner2;
 							break;
 						case "Auction":
 							myIcon = whiteRedIcon;
-							banner = banner3;
+							banner = properties[i].banner3;
 							break;
 						case "Lease":
 							myIcon = whiteBlueIcon;
-							banner = banner4;
+							banner = properties[i].banner4;
 							break;
 						case "Wanted":
 							myIcon = whiteGreenIcon;
-							banner = banner5;
+							banner = properties[i].banner5;
 							break;
 					}
 					break;
@@ -487,23 +487,23 @@ function populateMap() {
 					switch (properties[i].service.innerHTML) {
 						case "Listing":
 							myIcon = whiteRedIcon;
-							banner = banner1;
+							banner = properties[i].banner1;
 							break;
 						case "Tender":
 							myIcon = whiteRedIcon;
-							banner = banner2;
+							banner = properties[i].banner2;
 							break;
 						case "Auction":
 							myIcon = whiteRedIcon;
-							banner = banner3;
+							banner = properties[i].banner3;
 							break;
 						case "Lease":
 							myIcon = whiteBlueIcon;
-							banner = banner4;
+							banner = properties[i].banner4;
 							break;
 						case "Wanted":
 							myIcon = whiteGreenIcon;
-							banner = banner5;
+							banner = properties[i].banner5;
 							break;
 					}
 					break;

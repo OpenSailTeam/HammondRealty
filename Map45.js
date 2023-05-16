@@ -280,6 +280,8 @@ function observeResults() {
 
 observeResults();
 
+var layerGroup;
+
 function createMap() {
 
 //this is the satellite layer
@@ -310,7 +312,7 @@ var baseMaps = {
     "Streets": streets
 };
 
-var layerGroup = L.layerGroup().addTo(map);
+layerGroup = L.layerGroup().addTo(map);
 
 var layerControl = L.control.layers(baseMaps).addTo(map);
 

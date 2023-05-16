@@ -149,11 +149,13 @@ function initializeSlider(array, dict, id, className, paramsName, tooltipsArray)
     var startintone = 0;
     var startinttwo = array.length - 1;
 
-    if (urlParams.get(paramsName)) {
-        const params = urlParams.get(paramsName).split('|');
-        var startintone = dict[params[0]];
-        var startinttwo = dict[params[params.length - 1]] + 1;
-    }
+	if (urlParams.get(paramsName)) {
+    	const params = urlParams.get(paramsName).split('|').map(param => dict[param]);
+    	params.sort((a, b) => a - b);
+    	var startintone = params[0];
+    	var startinttwo = params[params.length - 1] + 1;
+	}
+
 
     noUiSlider.create(range, {
         connect: true,

@@ -510,6 +510,7 @@ function populateMap() {
 			}
 
 			try {
+				console.log(banner);
 				var marker = L.marker([properties[i].latitude, properties[i].longitude], {
 					icon: myIcon
 				}).addTo(layerGroup);

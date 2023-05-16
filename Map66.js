@@ -243,6 +243,11 @@ $(function() {
   observeMapContainer();
 });
 
+// Map-related variables.
+var sat, streets, map, baseMaps, layerGroup, layerControl, rms, markers;
+var redIcon, whiteRedIcon, blueIcon, whiteBlueIcon, greenIcon, whiteGreenIcon;
+
+
 function observeMapContainer() {
     const mapContainerElement = document.getElementById('map-container');
     if (mapContainerElement) {
@@ -283,6 +288,10 @@ function observeResults() {
 }
 
 observeResults();
+
+// Function to create map and related objects.
+function createMap() {
+    // Create satellite and streets layer.
 
 //this is the satellite layer
 var sat = L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=sdvoncYqRpUThIIyd0Qs', {
@@ -416,6 +425,8 @@ var whiteGreenIcon = L.icon({
     shadowSize: [40, 52],
 	shadowAnchor: [20, 52],
 });
+	
+}
 
 function populateMap() {
       // Check if the map container is visible before populating the map
@@ -487,4 +498,38 @@ function populateMap() {
 			} catch (error) {}
 		}
 	}
+	// Function to setup and start observing for changes.
+function setupObserver() {
+    // Grab map container element.
+    var mapContainer = document.querySelector('#map-container');
+
+    // Check if the map container is currently visible.
+    if (window.getComputedStyle(mapContainer).display !== 'none') {
+        // If map container is visible, create and populate map.
+        createMap();
+        populateMap();
+    }
+
+    // Create a new MutationObserver instance.
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            // If the map container's style has changed and it is now visible.
+            if (mutation.target.style.display === 'block') {
+                // Create and populate map if it doesn't exist yet.
+                if (!map) {
+                    createMap();
+                    populateMap();
+                }
+            }
+        });
+    });
+
+    // Start observing the map container for inline style changes.
+    observer.observe(mapContainer, { attributes: true, attributeFilter: ['style'] });
+}
+
+// Call setupObserver on page load.
+$(function() {
+    setupObserver();
+});
 }

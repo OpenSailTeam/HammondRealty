@@ -314,10 +314,10 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
 const rms = L.esri
     .featureLayer({
         url: "https://gis.saskatchewan.ca/arcgis/rest/services/SaskatchewanJurisdictions/MapServer/4",
-        simplifyFactor: 0.35,
+        simplifyFactor: 0.5,
         renderer: L.canvas(),
         precision: 5,
-        fetchAllFeatures: true,
+        fetchAllFeatures: false,
         style: {
             color: "#A9A9A9",
             weight: 1,

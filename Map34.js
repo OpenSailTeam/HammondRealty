@@ -412,8 +412,19 @@ var whiteGreenIcon = L.icon({
 	shadowAnchor: [20, 52],
 });
 
-function populateMap() {
-	
+async function populateMap() {
+    const mapContainerElement = document.getElementById('map-container');
+
+    await new Promise(resolve => {
+        const interval = setInterval(() => {
+            const displayStyle = window.getComputedStyle(mapContainerElement).display;
+            if (displayStyle === 'block') {
+                clearInterval(interval);
+                resolve();
+            }
+        }, 100); // Check every 100ms.
+    });
+
     setTimeout(function() {
         map.invalidateSize();
     }, 100); // delay required to allow DOM to update

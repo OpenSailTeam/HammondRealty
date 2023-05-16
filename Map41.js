@@ -244,10 +244,6 @@ $(function() {
 
 const apiKey = "AAPKf33f33b83d4d4a7db813b351e71d3f7516hfeoFRBscDDlxekWwBLDEYvXHNnmPQn5ugtK7nfWOMI98AaFh-8ztgfO9wQ2Ri";
 
-$(function() {
-    populateMap();
-});
-
 function observeResults() {
     const resultsElement = document.getElementById('results');
 		if (resultsElement) {

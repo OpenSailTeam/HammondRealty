@@ -413,6 +413,10 @@ var whiteGreenIcon = L.icon({
 });
 
 function populateMap() {
+	
+    setTimeout(function() {
+        map.invalidateSize();
+    }, 100); // delay required to allow DOM to update
 
     var results = document.getElementById("results");
 	

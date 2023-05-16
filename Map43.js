@@ -397,6 +397,10 @@ var whiteGreenIcon = L.icon({
 }
 
 function populateMap() {
+const mapContainerElement = document.getElementById('map-container');
+const displayStyle = window.getComputedStyle(mapContainerElement).display;
+
+if (displayStyle === 'block') {
 
     var results = document.getElementById("results");
 	
@@ -460,5 +464,6 @@ function populateMap() {
 				marker.bindPopup(popup);
 			} catch (error) {}
 		}
+	}
 	}
 }

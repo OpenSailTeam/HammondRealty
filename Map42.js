@@ -259,6 +259,8 @@ function observeResults() {
 
 observeResults();
 
+function createMap() {
+
 //this is the satellite layer
 var sat = L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=sdvoncYqRpUThIIyd0Qs', {
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
@@ -391,6 +393,8 @@ var whiteGreenIcon = L.icon({
     shadowSize: [40, 52],
 	shadowAnchor: [20, 52],
 });
+	
+}
 
 function populateMap() {
 

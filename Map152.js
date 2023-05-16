@@ -483,7 +483,7 @@ function populateMap() {
 							break;
 					}
 					break;
-				case "Inactive":
+				case "Sold/Leased":
 					switch (properties[i].service.innerHTML) {
 						case "Listing":
 							myIcon = whiteRedIcon;

@@ -414,7 +414,7 @@ var whiteGreenIcon = L.icon({
 
 function populateMap() {
 
-
+    console.log("called");
     setTimeout(function() {
         map.invalidateSize();
     }, 100); // delay required to allow DOM to update

@@ -410,6 +410,7 @@ function populateMap() {
 
 		for (let i = 0; i < x.length; i++) {
 			var myIcon = redIcon;
+			var banner;
 
 			properties[i] = {
 				name: x[i].childNodes[1],
@@ -424,30 +425,87 @@ function populateMap() {
 				link: x[i].childNodes[8],
 				image: x[i].childNodes[9],
 				status: x[i].childNodes[10],
-				statusImage: x[i].childNodes[11]
+				statusImage: x[i].childNodes[11],
+				banner1: x[i].childNodes[12].style.backgroundImage,
+				banner2: x[i].childNodes[13].style.backgroundImage,
+				banner3: x[i].childNodes[14].style.backgroundImage,
+				banner4: x[i].childNodes[15].style.backgroundImage,
+				banner5: x[i].childNodes[16].style.backgroundImage,
+				service: x[i].childNodes[17]
 			};
 
 			switch (properties[i].status.innerHTML) {
-				case "Sale Pending":
-					myIcon = whiteRedIcon;
+				case "Active":
+					switch (properties[i].service.innerHTML) {
+						case "Listing":
+							myIcon = redIcon;
+							banner = banner1;
+							break;
+						case "Tender":
+							myIcon = redIcon;
+							banner = banner2;
+							break;
+						case "Auction":
+							myIcon = redIcon;
+							banner = banner3;
+							break;
+						case "Lease":
+							myIcon = blueIcon;
+							banner = banner4;
+							break;
+						case "Wanted":
+							myIcon = greenIcon;
+							banner = banner5;
+							break;
+					}
 					break;
-				case "Sold":
-					myIcon = whiteRedIcon;
+				case "Pending":
+					switch (properties[i].service.innerHTML) {
+						case "Listing":
+							myIcon = whiteRedIcon;
+							banner = banner1;
+							break;
+						case "Tender":
+							myIcon = whiteRedIcon;
+							banner = banner2;
+							break;
+						case "Auction":
+							myIcon = whiteRedIcon;
+							banner = banner3;
+							break;
+						case "Lease":
+							myIcon = whiteBlueIcon;
+							banner = banner4;
+							break;
+						case "Wanted":
+							myIcon = whiteGreenIcon;
+							banner = banner5;
+							break;
+					}
 					break;
-				case "For Lease":
-					myIcon = blueIcon;
-					break;
-				case "Lease Pending":
-					myIcon = whiteBlueIcon;
-					break;
-				case "Leased":
-					myIcon = whiteBlueIcon;
-					break;
-				case "Buyer Contract (Active)":
-					myIcon = greenIcon;
-					break;
-				case "Buyer Contract (Fulfilled)":
-					myIcon = whiteGreenIcon;
+				case "Inactive":
+					switch (properties[i].service.innerHTML) {
+						case "Listing":
+							myIcon = whiteRedIcon;
+							banner = banner1;
+							break;
+						case "Tender":
+							myIcon = whiteRedIcon;
+							banner = banner2;
+							break;
+						case "Auction":
+							myIcon = whiteRedIcon;
+							banner = banner3;
+							break;
+						case "Lease":
+							myIcon = whiteBlueIcon;
+							banner = banner4;
+							break;
+						case "Wanted":
+							myIcon = whiteGreenIcon;
+							banner = banner5;
+							break;
+					}
 					break;
 			}
 
@@ -456,7 +514,7 @@ function populateMap() {
 					icon: myIcon
 				}).addTo(layerGroup);
 				var popup = L.popup()
-					.setContent('<div role="listitem" class="property-card w-dyn-item"><div style="background-image:url(' + properties[i].statusImage.src + ')" class="banner"></div><a href=' + properties[i].link.href + ' class="link-block-10 w-inline-block"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaec" class="last-article-image-wrapper"><img style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" src=' + properties[i].image.src + ' alt="" sizes="(max-width: 767px) 162.015625px, (max-width: 991px) 21vw, (max-width: 1279px) 22vw, (max-width: 1439px) 17vw, 19vw" class="image-zoom"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaee" style="display: none; width: 0px; height: 212.234px;" class="transition-bg-solid"></div></div><div class="div-block-10"><h2 class="heading-5">' + properties[i].name.innerHTML + '</h2><div class="div-block-11"><img src="https://assets-global.website-files.com/6176cec6a4e37b6a55ae0553/618c07883d62069be56731a5_place%20(3).png" loading="lazy" width="18" alt="" class="image-2"><div class="text-block-500">' + properties[i].location.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">Price (P):</div><div class="text-block-400 currency">' + properties[i].price + '</div></div><div class="div-block-39"><div class="text-block-600">Title Acres:</div><div class="text-block-400 number">' + properties[i].acres + '</div></div><div class="div-block-39"><div class="text-block-600">Avg. AV/Qtr:</div><div class="text-block-400 currency">' + properties[i].perqtr + '</div></div><div class="div-block-39"><div class="text-block-600">Soil Final Rating:</div><div class="text-block-400">' + properties[i].soil.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">$/acre:</div><div class="text-block-400 currency">' + properties[i].peracre + '</div></div></div><div class="w-embed"></div></a></div>')
+					.setContent('<div role="listitem" class="property-card w-dyn-item"><div style="background-image:url(' + banner + ')" class="banner"></div><a href=' + properties[i].link.href + ' class="link-block-10 w-inline-block"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaec" class="last-article-image-wrapper"><img style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" src=' + properties[i].image.src + ' alt="" sizes="(max-width: 767px) 162.015625px, (max-width: 991px) 21vw, (max-width: 1279px) 22vw, (max-width: 1439px) 17vw, 19vw" class="image-zoom"><div data-w-id="86802cd9-7302-50a6-b1ed-7b26c6b6aaee" style="display: none; width: 0px; height: 212.234px;" class="transition-bg-solid"></div></div><div class="div-block-10"><h2 class="heading-5">' + properties[i].name.innerHTML + '</h2><div class="div-block-11"><img src="https://assets-global.website-files.com/6176cec6a4e37b6a55ae0553/618c07883d62069be56731a5_place%20(3).png" loading="lazy" width="18" alt="" class="image-2"><div class="text-block-500">' + properties[i].location.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">Price (P):</div><div class="text-block-400 currency">' + properties[i].price + '</div></div><div class="div-block-39"><div class="text-block-600">Title Acres:</div><div class="text-block-400 number">' + properties[i].acres + '</div></div><div class="div-block-39"><div class="text-block-600">Avg. AV/Qtr:</div><div class="text-block-400 currency">' + properties[i].perqtr + '</div></div><div class="div-block-39"><div class="text-block-600">Soil Final Rating:</div><div class="text-block-400">' + properties[i].soil.innerHTML + '</div></div><div class="div-block-39"><div class="text-block-600">$/acre:</div><div class="text-block-400 currency">' + properties[i].peracre + '</div></div></div><div class="w-embed"></div></a></div>')
 				marker.bindPopup(popup);
 			} catch (error) {}
 		}

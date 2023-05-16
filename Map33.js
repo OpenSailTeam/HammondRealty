@@ -244,22 +244,38 @@ $(function() {
 
 const apiKey = "AAPKf33f33b83d4d4a7db813b351e71d3f7516hfeoFRBscDDlxekWwBLDEYvXHNnmPQn5ugtK7nfWOMI98AaFh-8ztgfO9wQ2Ri";
 
-$(function() {
-    populateMap();
-});
-
 function observeResults() {
     const resultsElement = document.getElementById('results');
-		if (resultsElement) {
-			const observer = new MutationObserver(function() {
-        	populateMap();
-    	});
+    if (resultsElement) {
+        const resultsObserver = new MutationObserver(function() {
+            populateMap();
+        });
 
-    	observer.observe(resultsElement, {
-        	childList: true
-    	});
-	}
+        resultsObserver.observe(resultsElement, {
+            childList: true
+        });
+    }
+
+    const mapContainerElement = document.getElementById('map-container');
+    if (mapContainerElement) {
+        const mapObserver = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    const displayStyle = window.getComputedStyle(mapContainerElement).display;
+                    if (displayStyle === 'block') {
+                        populateMap();
+                    }
+                }
+            });
+        });
+
+        mapObserver.observe(mapContainerElement, {
+            attributes: true,
+            attributeFilter: ['style']
+        });
+    }
 }
+
 
 observeResults();
 

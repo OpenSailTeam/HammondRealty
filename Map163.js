@@ -368,7 +368,7 @@ albertaRms.on("createfeature", function(e) {
         icon: L.divIcon({
             iconSize: null,
             className: 'rmlabel',
-            html: "<div>" + "R.M. NO. " + e.feature.properties.MD_NAME + "</div>"
+            html: "<div>" + "R.M. of " + e.feature.properties.MD_NAME + "</div>"
         })
     });
     markers.addLayer(label);
@@ -382,7 +382,7 @@ manitobaRms.on("createfeature", function(e) {
         icon: L.divIcon({
             iconSize: null,
             className: 'rmlabel',
-            html: "<div>" + "R.M. NO. " + e.feature.properties.MUNI_NAME + "</div>"
+            html: "<div>" + "R.M. of " + e.feature.properties.MUNI_NAME + "</div>"
         })
     });
     markers.addLayer(label);

@@ -327,6 +327,21 @@ const albertaRms = L.esri
     })
     .addTo(map);
 
+const manitobaRms = L.esri
+    .featureLayer({
+        url: "https://agrimaps.gov.mb.ca/arcgis/rest/services/AGRIMAPS/AGRIMAPS/MapServer/7",
+        simplifyFactor: 0.35,
+        renderer: L.canvas(),
+        precision: 5,
+        fetchAllFeatures: true,
+        style: {
+            color: "#A9A9A9",
+            weight: 1,
+            fillOpacity: 0,
+        }
+    })
+    .addTo(map);
+
 var markers = new L.FeatureGroup();
 
 const labels = {};
@@ -354,6 +369,20 @@ albertaRms.on("createfeature", function(e) {
             iconSize: null,
             className: 'rmlabel',
             html: "<div>" + "R.M. NO. " + e.feature.properties.MD_NAME + "</div>"
+        })
+    });
+    markers.addLayer(label);
+});
+
+manitobaRms.on("createfeature", function(e) {
+    const id = e.feature.id;
+    const feature = manitobaRms.getFeature(id);
+    const center = feature.getBounds().getCenter();
+    const label = L.marker(center, {
+        icon: L.divIcon({
+            iconSize: null,
+            className: 'rmlabel',
+            html: "<div>" + "R.M. NO. " + e.feature.properties.MUNI_NAME + "</div>"
         })
     });
     markers.addLayer(label);

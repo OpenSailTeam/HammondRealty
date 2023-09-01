@@ -314,7 +314,7 @@ const saskRms = L.esri
 
 const albertaRms = L.esri
     .featureLayer({
-        url: "https://geospatial.alberta.ca/titan/rest/services/boundary/urban_and_rural_municipality/MapServer/113",
+        url: "https://geospatial.alberta.ca/titan/rest/services/boundary/urban_and_rural_municipality/MapServer/107",
         simplifyFactor: 0.35,
         renderer: L.canvas(),
         precision: 5,
@@ -340,6 +340,20 @@ saskRms.on("createfeature", function(e) {
             iconSize: null,
             className: 'rmlabel',
             html: "<div>" + "R.M. NO. " + e.feature.properties.RMNO + " - " + e.feature.properties.RMNM + "</div>"
+        })
+    });
+    markers.addLayer(label);
+});
+
+albertaRms.on("createfeature", function(e) {
+    const id = e.feature.id;
+    const feature = albertaRms.getFeature(id);
+    const center = feature.getBounds().getCenter();
+    const label = L.marker(center, {
+        icon: L.divIcon({
+            iconSize: null,
+            className: 'rmlabel',
+            html: "<div>" + "R.M. NO. " + e.feature.properties.MD_NAME + "</div>"
         })
     });
     markers.addLayer(label);

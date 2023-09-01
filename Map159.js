@@ -360,7 +360,7 @@ albertaRms.on("createfeature", function(e) {
 });
 
 map.on('zoomend', function() {
-    if (map.getZoom() < 10) {
+    if (map.getZoom() < 20) {
         map.removeLayer(markers);
     } else {
         map.addLayer(markers);

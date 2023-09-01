@@ -314,7 +314,7 @@ const saskRms = L.esri
 
 const albertaRms = L.esri
     .featureLayer({
-        url: "https://geospatial.alberta.ca/titan/rest/services/boundary/urban_and_rural_municipality/MapServer",
+        url: "https://geospatial.alberta.ca/titan/rest/services/boundary/urban_and_rural_municipality/MapServer/105",
         simplifyFactor: 0.35,
         renderer: L.canvas(),
         precision: 5,

@@ -300,7 +300,7 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
 
 const saskRms = L.esri
     .featureLayer({
-        apiKey: apiKey
+        apiKey: apiKey,
         url: "https://gis.saskatchewan.ca/arcgis/rest/services/SaskatchewanJurisdictions/MapServer/4",
         simplifyFactor: 0.35,
         renderer: L.canvas(),
